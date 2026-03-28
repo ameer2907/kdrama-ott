@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    background-color: #141414;
+    color: #fff;
+    font-family: 'Nunito', 'Noto Sans KR', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #1a1a1a; }
+  ::-webkit-scrollbar-thumb { background: #E50914; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #b20710; }
+
+  ::selection { background: rgba(229, 9, 20, 0.3); }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-netflix-red hover:bg-red-700 text-white font-semibold py-2.5 px-6 rounded-md transition-all duration-200 flex items-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold py-2.5 px-6 rounded-md transition-all duration-200 flex items-center gap-2;
+  }
+
+  .card-hover {
+    @apply transition-transform duration-300 hover:scale-105 hover:z-10;
+  }
+
+  .glass-panel {
+    @apply bg-black/40 backdrop-blur-md border border-white/10 rounded-xl;
+  }
+
+  .skeleton {
+    @apply bg-gradient-to-r from-zinc-800 via-zinc-700 to-zinc-800 bg-[length:200%_100%] animate-shimmer rounded;
+  }
+
+  .nav-link {
+    @apply text-zinc-300 hover:text-white transition-colors duration-200 text-sm font-medium;
+  }
+
+  .input-field {
+    @apply w-full bg-zinc-800/80 border border-zinc-700 focus:border-netflix-red text-white placeholder-zinc-500 rounded-lg px-4 py-3 outline-none transition-all duration-200;
+  }
+  
+  .genre-tag {
+    @apply px-3 py-1 text-xs font-semibold rounded-full border;
+  }
+
+  .row-scroll {
+    @apply flex gap-3 overflow-x-auto pb-2 scrollbar-hide;
+    scroll-snap-type: x mandatory;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* Hero banner gradient */
+.hero-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(20, 20, 20, 0.98) 0%,
+    rgba(20, 20, 20, 0.85) 35%,
+    rgba(20, 20, 20, 0.4) 65%,
+    transparent 100%
+  ),
+  linear-gradient(
+    to top,
+    rgba(20, 20, 20, 1) 0%,
+    transparent 30%
+  );
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+/* Trailer card glow */
+.card-glow:hover {
+  box-shadow: 0 0 30px rgba(229, 9, 20, 0.3);
+}
+
+/* Korean text support */
+.ko { font-family: 'Noto Sans KR', sans-serif; }
+
+/* Rating star */
+.rating-star { color: #F5C842; }
+
+/* Genre colors */
+.genre-Romance { border-color: #E8376B; color: #E8376B; background: rgba(232, 55, 107, 0.1); }
+.genre-Action { border-color: #E50914; color: #E50914; background: rgba(229, 9, 20, 0.1); }
+.genre-Fantasy { border-color: #9B59B6; color: #9B59B6; background: rgba(155, 89, 182, 0.1); }
+.genre-Comedy { border-color: #F5C842; color: #F5C842; background: rgba(245, 200, 66, 0.1); }
+.genre-Thriller { border-color: #E67E22; color: #E67E22; background: rgba(230, 126, 34, 0.1); }
+.genre-Historical { border-color: #8B7355; color: #C9A96E; background: rgba(139, 115, 85, 0.1); }
+.genre-Crime { border-color: #708090; color: #A8B2BD; background: rgba(112, 128, 144, 0.1); }
+.genre-Drama { border-color: #00C4CC; color: #00C4CC; background: rgba(0, 196, 204, 0.1); }
+.genre-Mystery { border-color: #6C5CE7; color: #A29BFE; background: rgba(108, 92, 231, 0.1); }
+.genre-Horror { border-color: #2D1B1B; color: #FF6B6B; background: rgba(255, 107, 107, 0.1); }
